@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8707b71b805cf45900109c9ba43f1a, type: 3}
+  m_Name: Challenge 2
+  m_EditorClassIdentifier: 
+  startingDay: 1
+  description: 
+  penalties:
+  - {fileID: 11400000, guid: b3751d85829c6a94aa0e2f6dc7dda7bc, type: 2}
+  daysDuration: 2

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b49f5f63d23032147b5fc674c96778af, type: 3}
+  m_Name: Tuesday1
+  m_EditorClassIdentifier: 
+  startingDay: 2
+  description: Probando 2
+  rewards:
+  - {fileID: 11400000, guid: b03803ba57329f34bab4d85b0477589a, type: 2}
+  penalties:
+  - {fileID: 11400000, guid: e6951733fab4b3f4885bcfa04904e5e9, type: 2}
