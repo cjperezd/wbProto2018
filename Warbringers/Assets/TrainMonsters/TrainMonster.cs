@@ -23,7 +23,7 @@ public class TrainMonster : MonsterDataForPanel
         this.plasmaForSacrifice.text = string.Format(GlobalVars.PlasmaForSacrifice, this.monster.plasmaForSacrifice.ToString());
         this.experience.text = string.Format(GlobalVars.Experience, this.monster.experience.ToString());
         this.teamRol.text = string.Format(GlobalVars.TeamRol, this.monster.TeamRol);
-
+        this.monsterName.text = this.monster.name;
 
         // TODO: ver si se puede sacar este switch horrible por algo como lo que esta en Admin MOnster.
         switch (this.monster.actualTrainning)

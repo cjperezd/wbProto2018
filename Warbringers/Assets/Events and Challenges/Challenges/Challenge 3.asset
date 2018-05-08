@@ -13,6 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingDay: 3
   description: 
+  requirements:
+  - {fileID: 11400000, guid: 821c80e72b09a8a45ae2e2ce52df146f, type: 2}
+  rewards:
+  - {fileID: 11400000, guid: b03803ba57329f34bab4d85b0477589a, type: 2}
   penalties:
   - {fileID: 11400000, guid: b3751d85829c6a94aa0e2f6dc7dda7bc, type: 2}
   daysDuration: 2

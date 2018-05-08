@@ -16,10 +16,10 @@ MonoBehaviour:
   attackPoints: 20
   defensePoints: 5
   totalLifePoints: 120
-  actualLifePoints: 85
+  actualLifePoints: 120
   marketValue: 0
   mantainCost: 20
   plasmaForSacrifice: 0
-  experience: 135
+  experience: 0
   alive: 1
-  actualTrainning: 1
+  actualTrainning: 0

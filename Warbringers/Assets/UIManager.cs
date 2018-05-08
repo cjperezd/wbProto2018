@@ -14,13 +14,18 @@ public class UIManager : MonoBehaviour
     public GameObject buyMonsterstPanel;
     public GameObject trainMonsterstPanel;
     public DailyEventPanelUI dailyEventPanelUI;
+    public ChallengeContainerUI challengeContainerUI;
 
     public List<Monster> monstersSale;
-    private List<WeekChallenge> weekChallenges;
+    public List<WeekChallenge> weekChallenges;
     // TODO: this will change for a progress bar in the future.
     public Text weekDay;
 
+    [HideInInspector]
+    public bool hasModifiedTrainningsToday;
+
     private int dayCounter;
+    private int maxNumberOfChallengesAllowed = 3;
 
     public Day ActualDay
     {
@@ -38,6 +43,7 @@ public class UIManager : MonoBehaviour
         }
         this.InitDays();
         this.dayCounter = 0;
+        this.weekChallenges = new List<WeekChallenge>();
     }
 
     // Use this for initialization
@@ -45,18 +51,19 @@ public class UIManager : MonoBehaviour
     {
         this.SetActualDayEvents();
         this.UpdateDayText();
-        this.InitializeChallenges();
+        this.SetUpWeekChallenges();
     }
 
-    private void InitializeChallenges()
+    private void SetUpWeekChallenges()
     {
-        // TODO: solo para el prototipo que arranquen de entrada, la logica quizas no seria que sea asi... hay que probar.
-        this.weekChallenges = new List<WeekChallenge>();
+        this.weekChallenges.Clear();
         for (int i = 0; i < 3; i++)
         {
             WeekChallenge challenge = ChallengesManager.instance.GetRandomWeekChallenge();
             this.weekChallenges.Add(challenge);
         }
+
+        this.challengeContainerUI.SetChallenges();
     }
 
     public void NextDay()
@@ -66,21 +73,14 @@ public class UIManager : MonoBehaviour
         this.team.ResolveMonstersTraining();
         if (this.dayCounter == this.weekDays.Count)
         {
-            //this.UpdateWeekEvents();
             this.dayCounter = 0;
+            this.SetUpWeekChallenges();
         }
 
         this.SetActualDayEvents();
         this.UpdateDayText();
+        this.hasModifiedTrainningsToday = false;
     }
-
-    //private void UpdateWeekEvents()
-    //{
-    //    foreach (Day day in this.weekDays)
-    //    {
-    //        day.GenerateNewEvents();
-    //    }
-    //}
 
     private void SetActualDayEvents()
     {
@@ -142,6 +142,8 @@ public class UIManager : MonoBehaviour
     {
         this.trainMonsterstPanel.SetActive(false);
         this.mainPanel.SetActive(true);
+
+        this.hasModifiedTrainningsToday = true;
     }
 
     public void ApplyMonstersTrainning()

@@ -10,18 +10,10 @@ public abstract class Challenge : ScriptableObject
     public string description;
     public List<Requirement> requirements = new List<Requirement>();
     public List<Reward> rewards = new List<Reward>();
-    // TODO: para analizar si los eventos diarios tienen penalizacion y recompenza o no. Quizas solo algunos deberian tener y en cambio, no deberian ser opcionales...
     public List<Penalty> penalties = new List<Penalty>();
-    public List<IEntity> entitiesInChallenge;
+    public List<IEntity> entitiesInChallenge = new List<IEntity>();
 
-    public void CheckDays(DaysEnum actualDay)
-    {
-        if (this.ChallengeHasEnded(actualDay))
-        {
-            this.VerifyRequirements();
-        }
-    }
-
+    // TODO: esto se cambia con las tareas a realizar ahora.
     public void VerifyRequirements()
     {
         bool passedAllRequirements = true;
@@ -34,6 +26,7 @@ public abstract class Challenge : ScriptableObject
             }
         }
 
+        // TODO: esto se cambia con las tareas a realizar ahora.
         if (passedAllRequirements)
         {
             this.GiveRewards();
@@ -88,5 +81,6 @@ public abstract class Challenge : ScriptableObject
         }
     }
 
+    // TODO: creo que esto no iria mas.
     public abstract bool ChallengeHasEnded(DaysEnum actualDay);
 }

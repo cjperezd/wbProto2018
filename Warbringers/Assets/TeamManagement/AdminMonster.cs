@@ -20,21 +20,23 @@ public class AdminMonster : MonsterDataForPanel
 
 
         // TODO: ver si se puede sacar este switch horrible por algo como lo que esta abajo.
-        switch (this.monster.rol)
-        {
-            case MonsterRol.Leader:
-                this.rolSelector.value = 0;
-                break;
-            case MonsterRol.Attacker:
-                this.rolSelector.value = 1;
-                break;
-            case MonsterRol.Defender:
-                this.rolSelector.value = 2;
-                break;
-            case MonsterRol.Reserve:
-                this.rolSelector.value = 3;
-                break;
-        }
+        //switch (this.monster.rol)
+        //{
+        //    case MonsterRol.Leader:
+        //        this.rolSelector.value = 0;
+        //        break;
+        //    case MonsterRol.Attacker:
+        //        this.rolSelector.value = 1;
+        //        break;
+        //    case MonsterRol.Defender:
+        //        this.rolSelector.value = 2;
+        //        break;
+        //    case MonsterRol.Reserve:
+        //        this.rolSelector.value = 3;
+        //        break;
+        //}
+
+        this.rolSelector.value = (int)monster.rol;
 
         UIManager.instance.team.OnMonsterRolChanged += MonsterRolHasChanged;
         this.AddRolSelectorListener();
@@ -45,21 +47,6 @@ public class AdminMonster : MonsterDataForPanel
         if (monster.name == this.monster.name)
         {
             this.rolSelector.value = (int)monster.rol;
-            //switch (monster.rol)
-            //{
-            //    case MonsterRol.Leader:
-            //        this.rolSelector.value = 0;
-            //        break;
-            //    case MonsterRol.Attacker:
-            //        this.rolSelector.value = 1;
-            //        break;
-            //    case MonsterRol.Defender:
-            //        this.rolSelector.value = 2;
-            //        break;
-            //    default:
-            //        this.rolSelector.value = 3;
-            //        break;
-            //}
         }
     }
 
@@ -69,7 +56,6 @@ public class AdminMonster : MonsterDataForPanel
         {
             case 0:
                 UIManager.instance.ChangeTeamLeader(this.monster);
-
                 break;
             case 1:
                 UIManager.instance.ChangeTeamAttacker(this.monster);
